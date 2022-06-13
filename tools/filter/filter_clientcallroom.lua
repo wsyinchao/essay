@@ -20,7 +20,7 @@ function _M.find(filename)
         if is_include_pattern(line, key) then -- 
             local ibegin, iend = string.find(line, ",parameters=", 1, true)
             if not iend then 
-                print("**********************找到" .. key .. "关键字, 却没有正确提取出命令的行***********************")
+                -- print("**********************找到" .. key .. "关键字, 却没有正确提取出命令的行***********************")
                 -- print(line)
                 error_dictinary[#error_dictinary+1] = line
                 goto forend
@@ -36,7 +36,7 @@ function _M.find(filename)
                 goto forend
             else
                 local ret_tb = ret_func()
-                local ret = ret_tb[1]
+                local ret = key .. "-->" .. ret_tb[2]
                 repeat_dictinary[ret] = (repeat_dictinary[ret] or 0) + 1
             end
         else

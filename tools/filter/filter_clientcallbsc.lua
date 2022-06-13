@@ -15,7 +15,7 @@ local function is_include_pattern(str, pattern)
 end
 
 function _M.find(filename)
-    local key = "clientcallclub"
+    local key = "clientcallbsc"
     for line in io.lines(filename, "l") do 
         if is_include_pattern(line, key) then -- 
             local ibegin, iend = string.find(line, ",parameters=", 1, true)
